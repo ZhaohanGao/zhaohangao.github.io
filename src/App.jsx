@@ -13,7 +13,7 @@ import {
   BookOpen,
   MapPin,
 } from "lucide-react";
-import profilePhoto from "./assets/profile_photo.jpg";
+// import profilePhoto from "./assets/profile_photo.jpg";
 
 // --- 数据源 (Data Source) ---
 const DATA = {
@@ -237,18 +237,18 @@ const DATA = {
         ],
       },
     ],
-    projects: [
-      {
-        name: "SDEM 游戏商城",
-        tech: "Spring Boot, Vue.js, MySQL",
-        desc: "基于前后端分离的在线游戏商店，实现 Session/Cookie 登录及数据库索引优化。",
-      },
-      {
-        name: "复杂计算机网络构建",
-        tech: "OSPF, BGP, Network Design",
-        desc: "构建包含 4 个自治系统的复杂网络，实现跨 AS 的 IP 电话路由优化。",
-      },
-    ],
+    // projects: [
+    //   {
+    //     name: "SDEM 游戏商城",
+    //     tech: "Spring Boot, Vue.js, MySQL",
+    //     desc: "基于前后端分离的在线游戏商店，实现 Session/Cookie 登录及数据库索引优化。",
+    //   },
+    //   {
+    //     name: "复杂计算机网络构建",
+    //     tech: "OSPF, BGP, Network Design",
+    //     desc: "构建包含 4 个自治系统的复杂网络，实现跨 AS 的 IP 电话路由优化。",
+    //   },
+    // ],
     skills: {
       languages: "Python, C++, Java, 英语 (托福 100)",
       knowledge:
@@ -355,7 +355,7 @@ export default function Portfolio() {
             className="text-xl font-bold tracking-tighter cursor-pointer hover:opacity-70 transition-opacity"
             onClick={() => scrollTo("hero")}
           >
-            JC.
+            ZG.
           </h1>
 
           <div className="hidden md:flex gap-8 text-[13px] font-medium tracking-wide text-slate-500">
@@ -546,9 +546,8 @@ export default function Portfolio() {
       </section>
 
       {/* 研究与项目 Research & Projects */}
-      <section id="projects" className="py-24 scroll-mt-24">
+      {/* <section id="projects" className="py-24 scroll-mt-24">
         <div className="container mx-auto px-6 lg:px-12">
-          {/* Research */}
           <div className="mb-24">
             <ScrollReveal>
               <SectionTitle icon={BookOpen}>{t.nav.research}</SectionTitle>
@@ -584,7 +583,6 @@ export default function Portfolio() {
             </div>
           </div>
 
-          {/* Projects */}
           <div id="project-list" className="scroll-mt-24">
             <ScrollReveal>
               <SectionTitle icon={Code2}>{t.nav.projects}</SectionTitle>
@@ -622,7 +620,7 @@ export default function Portfolio() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* 技能 Skills */}
       <section id="skills" className="py-24 bg-white scroll-mt-24">
