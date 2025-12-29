@@ -14,6 +14,8 @@ import {
   MapPin,
 } from "lucide-react";
 
+import profileImg from "./assets/profile-pic.png";
+
 // --- 数据源 (Data Source) ---
 const DATA = {
   en: {
@@ -446,6 +448,24 @@ export default function Portfolio() {
               </div>
             </ScrollReveal>
           </div>
+
+          <div className="flex-1 flex justify-center md:justify-end relative">
+      <ScrollReveal delay={200}>
+        {/* 图片容器：控制大小和装饰 */}
+        <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 group">
+          
+          {/* 装饰性背景 (可选)：给图片加一个稍微偏移的背景框，增加层次感 */}
+          <div className="absolute inset-0 bg-slate-200 rounded-[2rem] rotate-6 group-hover:rotate-12 transition-transform duration-500 ease-in-out" />
+          
+          {/* 图片本体 */}
+          <img
+            src={profileImg} // 记得换成你的图片变量名 或 URL
+            alt="Zhaohan Gao"
+            className="absolute inset-0 w-full h-full object-cover rounded-[2rem] shadow-2xl border-4 border-white transform transition-transform duration-500 group-hover:scale-[1.02]"
+          />
+        </div>
+      </ScrollReveal>
+    </div>
         </div>
 
         <div
