@@ -24,8 +24,8 @@ const DATA = {
       skills: "Skills",
     },
     hero: {
-      name: "Jianbin Cui",
-      titles: ["Software Developer", "Graduate Student", "Full Stack Engineer"],
+      name: "Zhaohan Gao",
+      titles: ["Data Engineer", "Full Stack Developer"],
       cta: "View Projects",
       contact: "Contact Me",
     },
@@ -35,9 +35,9 @@ const DATA = {
         "Passionate software developer with a strong background in full-stack development and machine learning. Seeking opportunities to apply my skills in innovative projects.",
     },
     contact: {
-      phone: "+86-15266052110",
-      email: "jianbincui_buaa@outlook.com",
-      location: "Beijing, China",
+      phone: "+31-657109322",
+      email: "gaozhaohan22@gmail.com",
+      location: "Netherlands",
     },
     education: [
       {
