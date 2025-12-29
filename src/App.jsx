@@ -21,8 +21,6 @@ const DATA = {
     nav: {
       about: "About",
       experience: "Experience",
-      research: "Research",
-      projects: "Projects",
       skills: "Skills",
     },
     hero: {
@@ -95,40 +93,6 @@ const DATA = {
         ],
       },
     ],
-    research: [
-      {
-        title: "Interpretable Unsupervised Graph Neural Network Clustering",
-        org: "McMaster University",
-        role: "Research Project",
-        date: "06/2023 - 06/2024",
-        details: [
-          "Proposed 'Unsupervised Interpretable Deep Graph-level Clustering (IDGC)'.",
-          "Paper Accepted: ICPR 2024 - Interpretable Deep Graph-level Clustering: A Prototype-based Approach.",
-        ],
-      },
-      {
-        title: "Music Similarity Detection",
-        org: "University of Hong Kong",
-        role: "Summer Research Internship",
-        date: "06/2021 - 10/2021",
-        details: [
-          "Proposed similarity detection method based on pitch, rhythm, and tempo.",
-          "Achieved 85% accuracy on music plagiarism detection dataset.",
-        ],
-      },
-    ],
-    projects: [
-      {
-        name: "SDEM Game Mall",
-        tech: "Spring Boot, Vue.js, MySQL",
-        desc: "Online game shopping system with RESTful APIs, Session/Cookie login, and optimized database indexing.",
-      },
-      {
-        name: "Complex Computer Networking",
-        tech: "OSPF, BGP, Network Design",
-        desc: "Constructed a complex network with 4 Autonomous Systems, optimizing IP phone routing across AS boundaries.",
-      },
-    ],
     skills: {
       languages: "Python, C++, Java, English (TOEFL 100)",
       knowledge:
@@ -141,8 +105,6 @@ const DATA = {
     nav: {
       about: "关于",
       experience: "工作经历",
-      research: "研究经历",
-      projects: "项目展示",
       skills: "技能栈",
     },
     hero: {
@@ -215,40 +177,6 @@ const DATA = {
         ],
       },
     ],
-    research: [
-      {
-        title: "具备可解释性的无监督图神经网络聚类方法",
-        org: "McMaster University",
-        role: "研究项目",
-        date: "06/2023 - 06/2024",
-        details: [
-          "提出了 IDGC (无监督可解释深度图级聚类) 方法。",
-          "论文被 ICPR 2024 接收: Interpretable Deep Graph-level Clustering.",
-        ],
-      },
-      {
-        title: "音乐相似度检测",
-        org: "香港大学",
-        role: "暑期研究实习",
-        date: "06/2021 - 10/2021",
-        details: [
-          "提出基于音调、节奏风格的相似度检测方法。",
-          "在抄袭检测数据集上达到 85% 准确率。",
-        ],
-      },
-    ],
-    // projects: [
-    //   {
-    //     name: "SDEM 游戏商城",
-    //     tech: "Spring Boot, Vue.js, MySQL",
-    //     desc: "基于前后端分离的在线游戏商店，实现 Session/Cookie 登录及数据库索引优化。",
-    //   },
-    //   {
-    //     name: "复杂计算机网络构建",
-    //     tech: "OSPF, BGP, Network Design",
-    //     desc: "构建包含 4 个自治系统的复杂网络，实现跨 AS 的 IP 电话路由优化。",
-    //   },
-    // ],
     skills: {
       languages: "Python, C++, Java, 英语 (托福 100)",
       knowledge:
