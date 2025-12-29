@@ -100,7 +100,91 @@ const DATA = {
       frameworks: "Flask, Django, Spring Boot, Vue.js, React.js, ASP.NET",
       tools: "Git, Docker, Postman, Linux, Azure DevOps",
     },
-  }
+  },
+  zh: {
+    nav: {
+      about: "关于",
+      experience: "工作经历",
+      skills: "技能栈",
+    },
+    hero: {
+      name: "崔建彬",
+      titles: ["软件开发工程师", "研究生", "全栈开发者"],
+      cta: "查看作品",
+      contact: "联系我",
+    },
+    about: {
+      title: "个人简介",
+      content:
+        "热衷于软件开发的工程师，拥有扎实的全栈开发和机器学习背景。寻求机会将我的技能应用于创新项目中。",
+    },
+    contact: {
+      phone: "+86-15266052110",
+      email: "jianbincui_buaa@outlook.com",
+      location: "中国 北京",
+    },
+    education: [
+      {
+        school: "McMaster University (麦克马斯特大学)",
+        degree: "计算机科学与技术专业 | 研究生",
+        meta: "GPA: 3.9/4.0 | 加拿大 汉密尔顿",
+        date: "09/2022 - 12/2024",
+        desc: "研究领域：深度学习, 图神经网络, 可解释性与安全性",
+      },
+      {
+        school: "北京航空航天大学",
+        degree: "计算机科学与技术专业 | 本科",
+        meta: "GPA: 89/100 | 排名: 20% | 中国 北京",
+        date: "09/2018 - 06/2022",
+        desc: "主要课程：软件开发, 数据库, 操作系统, 面向对象编程等",
+      },
+    ],
+    experience: [
+      {
+        role: "软件开发工程师",
+        company: "ToolBX US Inc.",
+        date: "02/2025 - 至今",
+        location: "多伦多, 加拿大",
+        details: [
+          "在基于 TypeScript 的电商后端构建并维护 ERP 集成服务，实现了订单、报价和支付状态的实时追踪与前端可视化。",
+          "通过优化 SQL 查询（使用 queryBuilder）、实施有效索引策略、避免冗余查询及启用批量操作，加速了支付数据同步的遗留定时任务，运行时间缩减 50%。",
+          "增强了远程经销商终端自动化的 RPA 脚本，引入健壮的重试机制并降低失败率，减少了超过 80% 的人工干预。",
+          "使用 Jest（配合 mocks, stubs 和类型安全的 fixtures）实现了超过 95% 的单元测试覆盖率。",
+        ],
+      },
+      {
+        role: "全栈开发实习生 (全职)",
+        company: "FGF Brands",
+        date: "09/2023 - 04/2024",
+        location: "多伦多, 加拿大",
+        details: [
+          "开发并改进 Java Spring Boot 应用，服务 5000+ 员工。",
+          "使用 React & Kendo UI 优化前端，页面加载速度提升 20%。",
+          "通过 Redis 限流和异步处理优化后端，确保高并发稳定性。",
+          "用 Django API 替代脚本调用，视频流加载速度提升 50%。",
+          "搭建 Azure DevOps CI/CD 流水线，实现零停机交付。",
+        ],
+      },
+      {
+        role: "开发实习生",
+        company: "中石化胜利油田",
+        date: "06/2022 - 08/2022",
+        location: "山东, 中国",
+        details: [
+          "使用 Spring Boot & MySQL 开发采购网站后端。",
+          "重构商品详情模块，确保系统高可用性。",
+          "使用 JUnit5 进行全面单元测试。",
+        ],
+      },
+    ],
+    skills: {
+      languages: "Python, C++, Java, 英语 (托福 100)",
+      knowledge:
+        "MySQL, OOP/OOD, CI/CD, Unit Test, RESTful APIs, PyTorch, Keras",
+      frameworks: "Flask, Django, Spring Boot, Vue.js, React.js, ASP.NET",
+      tools: "Git, Docker, Postman, Linux, Azure DevOps",
+    },
+  },
 };
 
 // --- 组件 Components ---
@@ -214,14 +298,14 @@ export default function Portfolio() {
             ))}
           </div>
 
-          {/* <button
+          <button
             onClick={() => setLang((l) => (l === "en" ? "zh" : "en"))}
             className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200
                 transition-all text-xs font-semibold text-slate-700 tracking-wide"
           >
             <Globe size={14} />
             {lang === "en" ? "中文" : "EN"}
-          </button> */}
+          </button>
         </div>
       </nav>
 
