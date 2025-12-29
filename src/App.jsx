@@ -13,7 +13,6 @@ import {
   BookOpen,
   MapPin,
 } from "lucide-react";
-// import profilePhoto from "./assets/profile_photo.jpg";
 
 // --- 数据源 (Data Source) ---
 const DATA = {
@@ -25,8 +24,8 @@ const DATA = {
     },
     hero: {
       name: "Zhaohan Gao",
-      titles: ["Data Engineer", "Full Stack Developer"],
-      cta: "View Projects",
+      titles: ["Data Engineer", "Software Engineer", "Data Scientist"],
+      cta: "View Resume",
       contact: "Contact Me",
     },
     about: {
@@ -41,26 +40,26 @@ const DATA = {
     },
     education: [
       {
-        school: "McMaster University",
-        degree: "Master of Engineering in Computing and Software",
-        meta: "GPA: 3.9/4.0 | Hamilton, Ontario, Canada",
-        date: "09/2022 - 12/2024",
-        desc: "Research areas: Deep Learning, Graph Neural Networks, Interpretability and Security",
+        school: "VU Amsterdam & University of Amsterdam",
+        degree: "Master of Science in Computer Science",
+        meta: "Amsterdam, Netherlands",
+        date: "09/2024 - 08/2026",
+        desc: "Major courses: Data Mining Techniques, Fundamental of Adaptive Software, Green Lab, Security and Machine Learning",
       },
       {
-        school: "Beihang University",
-        degree: "Bachelor of Engineering in Computer Science and Technology",
-        meta: "GPA: 89/100 | Rank: Top 20% | Beijing, China",
-        date: "09/2018 - 06/2022",
+        school: "Northeast Normal University",
+        degree: "Bachelor of Engineering in Software Engineering",
+        meta: "Changchun, China",
+        date: "09/2019 - 06/2023",
         desc: "Major courses: Software Development, Database, Operating Systems, Object-Oriented Programming",
       },
     ],
     experience: [
       {
-        role: "Software Developer",
-        company: "ToolBX US Inc.",
-        date: "02/2025 - Present",
-        location: "Toronto, Canada",
+        role: "Data Scientist Intern",
+        company: "Versuni",
+        date: "10/2025 - Present",
+        location: "Amsterdam, North Holland, Netherlands",
         details: [
           "Built and maintained ERP integration services in a TypeScript-based e-commerce backend, enabling real-time status tracking and frontend visualization for Orders, Quotes, and Payments.",
           "Accelerated legacy cron jobs for syncing Payment data by optimizing SQL queries using queryBuilder, implementing effective indexing strategies, avoiding redundant queries, and enabling batch operations—cutting runtime by 50%.",
@@ -69,10 +68,10 @@ const DATA = {
         ],
       },
       {
-        role: "Full Stack Developer Intern (Full-time)",
-        company: "FGF Brands",
-        date: "09/2023 - 04/2024",
-        location: "Toronto, Canada",
+        role: "Full Stack Developer Intern",
+        company: "Pluxbox",
+        date: "05/2025 - 10/2025",
+        location: "Hilversum, North Holland, Netherlands",
         details: [
           "Developed and improved Java Spring Boot apps, aiding 5,000+ employees.",
           "Optimized frontend with React & Kendo UI, improving page load speed by 20%.",
@@ -82,10 +81,21 @@ const DATA = {
         ],
       },
       {
-        role: "Development Intern",
-        company: "Sinopec Shengli Oilfield Company",
-        date: "06/2022 - 08/2022",
-        location: "Shandong, China",
+        role: "Data Engineer Intern",
+        company: "NIO",
+        date: "12/2024 - 05/2025",
+        location: "Amsterdam, North Holland, Netherlands",
+        details: [
+          "Developed procurement backend using Spring Boot & MySQL.",
+          "Rewrote product details module ensuring high availability.",
+          "Conducted comprehensive JUnit5 testing.",
+        ],
+      },
+      {
+        role: "Full Stack Developer",
+        company: "Jack Technology",
+        date: "07/2023 - 07/2024",
+        location: "Taizhou, Zhejiang, China",
         details: [
           "Developed procurement backend using Spring Boot & MySQL.",
           "Rewrote product details module ensuring high availability.",
@@ -94,11 +104,11 @@ const DATA = {
       },
     ],
     skills: {
-      languages: "Python, C++, Java, English (TOEFL 100)",
+      languages: "Python, Java, JavaScript",
       knowledge:
-        "MySQL, OOP/OOD, CI/CD, Unit Test, RESTful APIs, PyTorch, Keras",
-      frameworks: "Flask, Django, Spring Boot, Vue.js, React.js, ASP.NET",
-      tools: "Git, Docker, Postman, Linux, Azure DevOps",
+        "Databricks, PySpark, MySQL",
+      frameworks: "Spring Boot, Vue.js, React.js",
+      tools: "Git, Docker, Kubernetes, Linux, Azure DevOps, AWS",
     },
   },
   zh: {
@@ -255,11 +265,38 @@ export default function Portfolio() {
   const t = DATA[lang];
   const [scrolled, setScrolled] = useState(false);
 
+  // --- [修改处 1] 滚轮动画核心逻辑 ---
+  const [titleIndex, setTitleIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+
+  // 1. 构建显示用的列表：在末尾追加第一个元素，实现无缝连接
+  // 例如：["A", "B"] -> ["A", "B", "A(副本)"]
+  const displayTitles = [...t.hero.titles, t.hero.titles[0]];
+
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    const interval = setInterval(() => {
+      setTitleIndex((prev) => {
+        // 正常滚动到下一个
+        setIsTransitioning(true);
+        return prev + 1;
+      });
+    }, 3000); // 每3秒滚动一次
+
+    return () => clearInterval(interval);
+  }, [t.hero.titles]);
+
+  // 2. 监听滚动：如果滚动到了最后一个（副本），则瞬间重置回第一个
+  useEffect(() => {
+    if (titleIndex === t.hero.titles.length) {
+      // 等待 CSS 动画播放完毕 (700ms)
+      const timeout = setTimeout(() => {
+        setIsTransitioning(false); // 关闭动画（瞬间跳转）
+        setTitleIndex(0); // 重置回索引 0
+      }, 700); // 这个时间必须和 CSS duration 保持一致
+
+      return () => clearTimeout(timeout);
+    }
+  }, [titleIndex, t.hero.titles.length]);
 
   const scrollTo = (id) => {
     const element = document.getElementById(id);
@@ -321,18 +358,33 @@ export default function Portfolio() {
                 {t.hero.name}
               </h1>
 
+              {/* --- [修改处 2] 修改了这里：使用 React 状态控制的垂直滚动 --- */}
+              {/* --- 修复部分 --- */}
+              {/* --- [修改处 2] 渲染部分 --- */}
               <div className="h-10 overflow-hidden mt-2">
-                <div className="animate-slide-up">
-                  {t.hero.titles.map((title, i) => (
+                <div
+                  // 只有在 isTransitioning 为 true 时才应用 transition 类
+                  // 这样重置回 0 时是瞬间完成的，肉眼看不出跳变
+                  className={`flex flex-col ${
+                    isTransitioning ? "transition-transform duration-700 ease-in-out" : ""
+                  }`}
+                  // 使用 rem 进行精确位移：index * 2.5rem (对应 h-10 的高度)
+                  style={{ transform: `translateY(-${titleIndex * 2.5}rem)` }}
+                >
+                  {displayTitles.map((title, i) => (
                     <div
                       key={i}
-                      className="h-10 text-2xl md:text-3xl text-slate-500 font-medium flex items-center gap-3"
+                      // 确保每一行高度固定为 h-10 (2.5rem)
+                      className="h-10 flex-shrink-0 text-2xl md:text-3xl text-slate-500 font-medium flex items-center gap-3"
                     >
                       {title}
                     </div>
                   ))}
                 </div>
               </div>
+              {/* ------------------------- */}
+              {/* ---------------- */}
+              {/* ----------------------------------------------------- */}
 
               <p className="text-xl text-slate-600 max-w-xl leading-relaxed mt-6 font-light">
                 {t.about.content}
@@ -359,7 +411,7 @@ export default function Portfolio() {
 
               <div className="flex gap-6 mt-12 text-slate-400">
                 <a
-                  href="https://github.com/cjbbb"
+                  href="https://github.com/ZhaohanGao"
                   target="_blank"
                   rel="noreferrer"
                   className="hover:text-slate-900 transition-colors"
@@ -367,7 +419,7 @@ export default function Portfolio() {
                   <Github size={24} strokeWidth={1.5} />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/jianbin-cui/"
+                  href="https://www.linkedin.com/in/gaoz/"
                   target="_blank"
                   rel="noreferrer"
                   className="hover:text-slate-900 transition-colors"
@@ -473,83 +525,6 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* 研究与项目 Research & Projects */}
-      {/* <section id="projects" className="py-24 scroll-mt-24">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="mb-24">
-            <ScrollReveal>
-              <SectionTitle icon={BookOpen}>{t.nav.research}</SectionTitle>
-            </ScrollReveal>
-            <div className="grid md:grid-cols-2 gap-8">
-              {t.research.map((res, idx) => (
-                <ScrollReveal key={idx}>
-                  <Card className="h-full">
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="px-2.5 py-1 text-[10px] font-bold bg-slate-900 text-white rounded uppercase tracking-wider">
-                        Paper
-                      </span>
-                    </div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-2">
-                      {res.title}
-                    </h3>
-                    <p className="text-slate-500 mb-6 text-sm font-medium">
-                      {res.org} • {res.role}
-                    </p>
-                    <ul className="space-y-2">
-                      {res.details.map((d, i) => (
-                        <li
-                          key={i}
-                          className="text-slate-600 text-sm leading-relaxed"
-                        >
-                          - {d}
-                        </li>
-                      ))}
-                    </ul>
-                  </Card>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-
-          <div id="project-list" className="scroll-mt-24">
-            <ScrollReveal>
-              <SectionTitle icon={Code2}>{t.nav.projects}</SectionTitle>
-            </ScrollReveal>
-            <div className="grid md:grid-cols-2 gap-8">
-              {t.projects.map((proj, idx) => (
-                <ScrollReveal key={idx} delay={idx * 100}>
-                  <div className="group relative bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-xl transition-all duration-500">
-                    <div className="p-8">
-                      <div className="flex justify-between items-center mb-4">
-                        <div className="p-2 bg-[#f5f5f7] rounded-lg text-slate-900">
-                          <Layers size={20} strokeWidth={1.5} />
-                        </div>
-                      </div>
-                      <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
-                        {proj.name}
-                      </h3>
-                      <p className="text-slate-600 text-sm mb-6 leading-relaxed">
-                        {proj.desc}
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {proj.tech.split(", ").map((tag, i) => (
-                          <span
-                            key={i}
-                            className="text-xs px-2.5 py-1 bg-[#f5f5f7] text-slate-600 rounded font-medium"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section> */}
-
       {/* 技能 Skills */}
       <section id="skills" className="py-24 bg-white scroll-mt-24">
         <div className="container mx-auto px-6 lg:px-12">
@@ -618,19 +593,19 @@ export default function Portfolio() {
             Email
           </a>
           <a
-            href="https://github.com/cjbbb"
+            href="https://github.com/ZhaohanGao"
             className="hover:text-slate-900 transition-colors"
           >
             GitHub
           </a>
           <a
-            href="https://www.linkedin.com/in/jianbin-cui/"
+            href="https://www.linkedin.com/in/gaoz/"
             className="hover:text-slate-900 transition-colors"
           >
             LinkedIn
           </a>
         </div>
-        <p>© 2025 {t.hero.name}. Designed with minimalism.</p>
+        <p>© 2026 {t.hero.name}. Designed with minimalism.</p>
       </footer>
     </div>
   );
