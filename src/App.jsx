@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 
 import profileImg from "./assets/profile-pic.png";
+import resumePdf from "./assets/Resume_Gao.pdf";
 
 // --- 数据源 (Data Source) ---
 const DATA = {
@@ -411,7 +412,7 @@ export default function Portfolio() {
 
               <div className="flex flex-wrap gap-4 pt-8">
                 <a
-                  href="/Resume_Gao.pdf"
+                  href={resumePdf} {/* <-- Use the imported variable without quotes */}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-8 py-3 bg-slate-900 hover:bg-black
@@ -419,7 +420,7 @@ export default function Portfolio() {
                             flex items-center gap-2"
                 >
                   {t.hero.cta}
-                  <BookOpen size={18} /> {/* I changed Code2 to BookOpen to better match a resume, but you can keep Code2 if you prefer! */}
+                  <BookOpen size={18} />
                 </a>
                 <a
                   href={`mailto:${t.contact.email}`}
