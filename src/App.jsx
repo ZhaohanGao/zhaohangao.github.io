@@ -412,7 +412,7 @@ export default function Portfolio() {
 
               <div className="flex flex-wrap gap-4 pt-8">
                 <a
-                  href={resumePdf} {/* <-- Use the imported variable without quotes */}
+                  href={resumePdf}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-8 py-3 bg-slate-900 hover:bg-black
