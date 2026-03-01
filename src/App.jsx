@@ -410,15 +410,17 @@ export default function Portfolio() {
               </p>
 
               <div className="flex flex-wrap gap-4 pt-8">
-                <button
-                  onClick={() => scrollTo("projects")}
+                <a
+                  href="/Resume_Gao.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-8 py-3 bg-slate-900 hover:bg-black
                             text-white rounded-full font-medium transition-all hover:shadow-lg hover:-translate-y-0.5
                             flex items-center gap-2"
                 >
                   {t.hero.cta}
-                  <Code2 size={18} />
-                </button>
+                  <BookOpen size={18} /> {/* I changed Code2 to BookOpen to better match a resume, but you can keep Code2 if you prefer! */}
+                </a>
                 <a
                   href={`mailto:${t.contact.email}`}
                   className="px-8 py-3 bg-white hover:bg-slate-50 text-slate-900 rounded-full font-medium border border-slate-200 transition-all flex items-center gap-2 hover:shadow-md hover:-translate-y-0.5"
