@@ -59,15 +59,15 @@ const DATA = {
     ],
     experience: [
       {
-        role: "Data Scientist Intern",
+        role: "Data Engineer Intern",
         company: "Versuni",
         date: "10/2025 - Present",
         location: "Amsterdam, North Holland, Netherlands",
         details: [
-          "Responsible for global data analysis of commercial and media metrics for various e-commerce platforms.",
-          "Designed and deployed interactive Power BI dashboards in collaboration with stakeholders to visualize key metrics.",
-          "Build and schedule the jobs and ETL pipelines on Databricks using Python and SQL to batch process large-scale data.",
-          "Engineered automated web scrapers and API connectors to ingest data from disparate sources into the data warehouse."
+          "Architected ETL pipelines on Databricks leveraging Python and PySpark, efficiently batch-processing large-scale data with volumes reaching 159M+ rows in the data lakehouse.",
+          "Engineered web scrapers and API connectors to efficiently ingest data from disparate sources into the data warehouse.",
+          "Partnered with 3 cross-functional departments across Europe, Turkey, and APAC to develop Power BI dashboards, effectively visualizing core KPIs spanning e-commerce performance, supply chain operations, and retail media.",
+          "Spearheaded the migration of legacy data assets—transitioning local web scraping scripts and raw files from SharePoint into the Databricks environment—to establish a scalable and centralized data architecture."
         ],
       },
       {
@@ -76,10 +76,10 @@ const DATA = {
         date: "05/2025 - 10/2025",
         location: "Hilversum, North Holland, Netherlands",
         details: [
-          "Responsible for developing new features of the no-code software products using  Nest.js, Typescript, and Vue.js.",
-          "Responsible for deploying the company's new k8s cluster to the cloud platform using Helm.",
-          "Built dashboards to gain insights into the logs and metrics of the cluster. Set up alerts for the cluster.",
-          "Re-designed the company's MongoDB cluster to a sharded MongoDB cluster, ensuring the high availability of the database."
+          "Architected an end-to-end Continuous Delivery (CD) platform to automate the lifecycle management of K8S services, slashing deployment time by 60% and empowering non-engineering teams to execute self-service releases.",
+          "Implemented comprehensive system observability using SigNoz, building custom dashboards and configuring automated alerts for cluster logs and metrics to monitor the system.",
+          "Provisioned cloud-based Kubernetes (K8S) clusters using Helm and re-architected the legacy MongoDB infrastructure into a highly available sharded cluster, ensuring robust fault tolerance.",
+          "Engineered core features for enterprise no-code software products utilizing a modern tech stack encompassing Nest.js, GraphQL, and Vue.js."
         ],
       },
       {
@@ -88,11 +88,9 @@ const DATA = {
         date: "12/2024 - 05/2025",
         location: "Amsterdam, North Holland, Netherlands",
         details: [
-          "Design and develop ETL pipelines for high-volume data streams using PySpark and SQL.",
-          "Optimize the performance of the ETL pipelines by rewriting and rescheduling the pipelines.",
-          "Develop and maintain the BI dashboards for data visualization and reporting.",
-          "Establish API connections and data transformation between the data warehouse and multiple platforms.",
-          "Collaborate with colleagues across different countries to understand and satisfy their data requests."
+          "Optimized data warehouse performance by refactoring PySpark scripts and rescheduling ETL pipelines, successfully reducing API call overhead by 70%.",
+          "Engineered robust ETL pipelines using PySpark and SQL to ingest and transform high-volume data from distributed Kafka clusters and REST APIs, centralizing data across multiple platforms.",
+          "Collaborated with international, cross-functional teams to translate data requirements into interactive BI dashboards, visualizing core e-commerce metrics and actionable user insights."
         ],
       },
       {
@@ -101,20 +99,19 @@ const DATA = {
         date: "07/2023 - 07/2024",
         location: "Taizhou, Zhejiang, China",
         details: [
-          "Develop and orchestrate the ETL pipelines using Kettle and SQL. Collect and process data from various databases.",
-          "Build and maintain dashboards using FineBI to gain insight from the data of supply chain domain.",
-          "Developed and maintained microservices for web applications using Spring Boot and Vue.js.",
-          "Accelerated deployment cycles by 50% by architecting and implementing a robust CI/CD pipeline using Jenkins and Docker.",
-          "Upgrade the infrastucture of the service using Redis and RabbitMQ, result in 40% faster response time."
+          "Engineered robust ETL pipelines using Pentaho and SQL to extract and transform complex supply chain data into the centralized data warehouse.",
+          "Delivered actionable operational insights by designing interactive BI dashboards in FineReport to visualize end-to-end supply chain metrics.",
+          "Spearheaded backend architecture refactoring and middleware upgrades, leveraging Redis caching to optimize API performance and successfully reduce response times by 40%.",
+          "Developed full-stack enterprise applications (WMS, CRM, SCADA, SRM) using Java (Spring Boot) and Vue.js, and streamlined deployments by building CI/CD pipelines with Jenkins and Docker."
         ],
       },
     ],
     skills: {
-      languages: "Python, Java, JavaScript",
+      languages: "Python, SQL, Java, JavaScript",
       knowledge:
-        "Databricks, PySpark, MySQL",
+        "Databricks, PySpark, Apache Spark, HDFS, Power BI, Pentaho",
       frameworks: "Spring Boot, Vue.js, React.js",
-      tools: "Git, Docker, Kubernetes, Linux, Azure DevOps, AWS",
+      tools: "Git, Docker, Kubernetes, Linux, Azure DevOps, AWS, Jenkins, Helm",
     },
   },
   zh: {
